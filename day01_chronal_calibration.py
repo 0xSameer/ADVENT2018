@@ -41,11 +41,10 @@ assert find_repeat([+3, +3, +4, -2, -4]) == 10
 assert find_repeat([-6, +3, +8, +5, -6]) == 5
 assert find_repeat([+7, +7, -2, -7, -4]) == 14
 
-
 if __name__ == "__main__":
     INPUT = []
     with open("./data/day01_a.txt", "r") as in_f:
         INPUT = [int(line.strip()) for line in in_f]
-        print(INPUT[:5])
-        print(apply_changes(INPUT))
-        print(find_repeat(INPUT))
+    print(INPUT[:5])
+    print(apply_changes(INPUT))
+    print(find_repeat(INPUT))
