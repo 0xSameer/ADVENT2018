@@ -10,8 +10,6 @@ from typing import List
 
 def apply_changes(freq_deltas: List[int]) -> int:
     freq = sum(freq_deltas)
-    # for delta in freq_deltas:
-    #     freq += delta
     return freq
 
 def find_repeat(freq_deltas: List[int]) -> int:
@@ -46,7 +44,7 @@ assert find_repeat([+7, +7, -2, -7, -4]) == 14
 
 if __name__ == "__main__":
     INPUT = []
-    with open("./day01_input.txt", "r") as in_f:
+    with open("./data/day01_a.txt", "r") as in_f:
         INPUT = [int(line.strip()) for line in in_f]
         print(INPUT[:5])
         print(apply_changes(INPUT))
