@@ -126,6 +126,7 @@ if __name__ == "__main__":
     Find the guard with the max total sleep time
     For this guard, find the minute with the highest sleep time
     """
+    # Use sum over sleep array
     max_sleep_guard = max(guard_data.items(), key=lambda t: np.sum(t[1]))[0]
     max_sleep_min = np.argmax(guard_data[max_sleep_guard])
     print(max_sleep_guard, max_sleep_min, (max_sleep_guard * max_sleep_min))
@@ -133,7 +134,10 @@ if __name__ == "__main__":
     """
     Strategy 2:
     For each guard, find the minute where they sleep they most
+    Select the guard who has slept the longest on a particular
+    minute
     """
+    # Use max over sleep array
     g_id = max(guard_data.items(), key=lambda t: np.max(t[1]))[0]
     max_min = np.argmax(guard_data[g_id ])
     print(g_id, max_min, (g_id * max_min))
