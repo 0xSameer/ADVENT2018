@@ -102,7 +102,7 @@ def find_safe_area(coords: List[Tuple[int,int]],
             total_dist = sum(dist)
             # if unique value found, then assign
             # cell to coord
-            if total_dist <= MAX_VAL:
+            if total_dist < MAX_VAL:
                 grid[r,c] = 1
             else:
                 grid[r,c] = -1
@@ -126,7 +126,7 @@ TEST_INPUT = [(1, 1),
 
 assert (find_largest_area(TEST_INPUT) == 17)
 
-assert (find_safe_area(TEST_INPUT, 30) == 16)
+assert (find_safe_area(TEST_INPUT, 32) == 16)
 
 if __name__ == "__main__":
     with open("./data/day06_a.txt", "r") as in_f:
