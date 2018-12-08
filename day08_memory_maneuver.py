@@ -19,26 +19,32 @@ class Node:
         self.value = None
 
     def __str__(self):
-        return str(self.n_id)
+        return str(self.value)
 
     def __repr__(self):
         return str(self.value)
 
 
-def dfs(nums: List[int], curr: int, nodes: List[Node]) -> \
-                         Tuple[Node, int, Dict[str, Node]]:
+def dfs(nums: List[int], curr: int, nodes: Dict[str, Node]) -> \
+                                                    Tuple[Node, int]:
     # Create a new node
     # unique id is the current index in the license
     n_id = curr
     node = Node(n_id, nums[curr], nums[curr+1])
     curr += 2
 
+    # Process child nodes
     for i in range(node.n_child):
-        child_node, curr, nodes = dfs(nums, curr, nodes)
+        child_node, curr = dfs(nums, curr, nodes)
         node.child.append(child_node)
+    # end for
 
+    # Get meta data value
     meta_data = nums[curr:curr+node.n_meta]
+    node.meta = meta_data
+    curr += node.n_meta
 
+    # Calculate value
     if node.n_child == 0:
         node.value = sum(meta_data)
 
@@ -51,17 +57,15 @@ def dfs(nums: List[int], curr: int, nodes: List[Node]) -> \
         node.value = value
     # end else
 
-    node.meta = meta_data
-
+    # Add node to dictionary
     nodes[n_id] = node
 
-    curr += node.n_meta
-    return node, curr, nodes
+    return node, curr
 
 def parse_license(nums: List[int]) -> Dict[str, Node]:
     N = len(nums)
     nodes = {}
-    head, curr, nodes = dfs(nums, 0, nodes)
+    head, curr = dfs(nums, 0, nodes)
 
     return nodes
 
