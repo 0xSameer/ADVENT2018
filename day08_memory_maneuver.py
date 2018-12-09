@@ -1,7 +1,7 @@
 """
-ADVENT 2018 - Day 06
+ADVENT 2018 - Day 08
 
-https://adventofcode.com/2018/day/6
+https://adventofcode.com/2018/day/8
 
 """
 
