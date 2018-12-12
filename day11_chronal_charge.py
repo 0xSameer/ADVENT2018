@@ -1,7 +1,7 @@
 """
 ADVENT 2018 - Day 11
 
-https://adventofcode.com/2018/day/10
+https://adventofcode.com/2018/day/11
 
 """
 from typing import List, Tuple
