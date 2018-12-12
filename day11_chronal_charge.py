@@ -67,8 +67,9 @@ def max_square_power_size(grid: np.ndarray):
                 x,y = 1,1
                 grid size 1: sum(y,x)
                 grid size 2: g(y,x) + g(y+1,x), g(y+1,x+1), g(y, x+1)
-
-                grid size 2: g()
+                For each successive square size, just add an extra row,
+                and column. The last cell is added twice, so we subtract it
+                once
                 """
                 square_power += np.sum(grid[y:y+s+1,x+s])
                 square_power += np.sum(grid[y+s,x:x+s+1])
